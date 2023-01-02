@@ -46,7 +46,7 @@
                             @{
                                 var desc = post.Description;
                             }
-                            @desc.Substring(0, 15)....
+                            @desc.Substring(0, 10)....
                         </p>
                         <div class="d-flex justify-content-between align-items-center">
                             <div class="btn-group">
@@ -68,6 +68,4 @@
            asp-route-pageNumber="@(Model.PageNumber + 1)">Next Page</a>
         }
     </div>
-
-
 </div>

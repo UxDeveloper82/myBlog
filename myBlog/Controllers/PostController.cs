@@ -18,7 +18,10 @@ namespace myBlog.Areas.Admin.Controllers
             _repo = repo;
             _fileManager = fileManager;
         }
-        public IActionResult Index(int pageNumber, string category, string search, string orderBy)
+        public IActionResult Index(int pageNumber, 
+            string category, 
+            string search, 
+            string orderBy)
         {
             if (pageNumber < 1)
                 return RedirectToAction("Index", new { pageNumber = 1, category });
