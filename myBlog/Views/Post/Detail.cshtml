@@ -40,32 +40,42 @@
             <div class="post-body">
                 @Html.Raw(Model.Body)
             </div>
-            <div class="post__comments">
-                @{
-                    await Html.RenderPartialAsync("_MainComment", new CommentViewModel { PostId = Model.Id, MainCommentId = 0 });
-                }
-                @foreach (var c in Model.MainComments)
-                {
-                    <p>
-                        @c.Message --- @c.Created
+            @if(User.Identity.IsAuthenticated)
+            {
+                <div class="post__comments">
+                    @{
+                        await Html.RenderPartialAsync("_MainComment", new CommentViewModel { PostId = Model.Id, MainCommentId = 0 });
+                    }
+                    @foreach (var c in Model.MainComments)
+                    {
+                        <p>
+                            @c.Message --- @c.Created
 
-                    </p>
-                    <div style="margin-left: 20px;">
-                        <h4>Sub Comments</h4>
-                        @{
-                            await Html.RenderPartialAsync("_MainComment", new CommentViewModel { PostId = Model.Id, MainCommentId = c.Id });
-                        }
-                        @foreach (var sc in c.SubComments)
-                        {
-                            <p class="para">
-                                @sc.Message --- @sc.Created
+                        </p>
+                        <div style="margin-left: 20px;">
+                            <h4>Sub Comments</h4>
+                            @{
+                                await Html.RenderPartialAsync("_MainComment", new CommentViewModel { PostId = Model.Id, MainCommentId = c.Id });
+                            }
+                            @foreach (var sc in c.SubComments)
+                            {
+                                <p class="para">
+                                    @sc.Message --- @sc.Created
 
-                            </p>
+                                </p>
 
-                        }
-                    </div>
-                }
-            </div>
+                            }
+                        </div>
+                    }
+                </div>
+            
+            }
+            else{
+                <div>
+                    <a asp-action="Login" asp-controller="Account">Sign In</a> to comment on this awesome post!
+                </div>
+            }
+            
             <a class="btn btn-info" asp-controller="Post" asp-action="Index">Go Back To List</a>
         </div>
     </div>

@@ -17,7 +17,7 @@
     <div class="form-group">
         <label>Category</label>
         <select class="form-control" asp-for="Category">
-            <option value="Repair">Appliance-Repair</option>
+            <option value="Repair">Repairs</option>
             <option value="Tips">Tips</option>
             <option value="Cleaning">Cleaning</option>
             <option value="New">New-Arrival</option>
@@ -33,6 +33,10 @@
         <br />
         <input class="btn btn-primary" asp-for="CurrentImage" type="hidden" />
         <input class="btn btn-outline-info" asp-for="Image" />
+    </div>
+    <div class="col-md-6 col-lg-4 pt-4">
+        <img src="~/content/blog/@Model.CurrentImage"
+             width="100%" style="border-radius:5px; border:1px solid #bbb9b9" />
     </div>
     <input class="btn btn-primary btn-group-lg" type="submit" value="Submit" />
 </form>
