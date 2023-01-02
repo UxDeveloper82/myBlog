@@ -1,0 +1,38 @@
+﻿@model IEnumerable<Post>
+
+@{
+    ViewData["Title"] = "Index";
+    var title = "Admin Panel"; 
+}
+
+
+<div class="container-fluid">
+    <div class="text-center mt-3">
+        <h2>@title</h2>
+        <hr />
+    </div>
+    <a asp-controller="Panel" asp-action="Upsert">
+        Add New Post
+    </a>
+    <div class="table-responsive">
+        <table id="mypost" class="table table-stripped table-hover">
+            <thead class="thead-dark">
+                <tr class="table-info">
+                    <th>No</th>
+                    <th>Title</th>
+                    <th>Body</th>
+                    <th>Description</th>
+                    <th>Category</th>
+                    <th>Tags</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+@section scripts {
+   <script src="~/js/blogList.js"></script>   
+}

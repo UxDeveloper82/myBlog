@@ -1,0 +1,75 @@
+﻿@model myBlog.Models.ViewModels.IndexViewModel
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<style>
+:root {
+  --jumbotron-padding-y: 3rem;
+}
+
+.jumbotron {
+  padding-top: var(--jumbotron-padding-y);
+  padding-bottom: var(--jumbotron-padding-y);
+  margin-bottom: 0;
+  background-color: #fff;
+
+.jumbotron p:last-child {
+  margin-bottom: 0;
+}
+
+.jumbotron-heading {
+  font-weight: 300;
+}
+
+.jumbotron .container {
+  max-width: 40rem;
+}
+
+.box-shadow { box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05); }
+
+</style>
+
+
+<main role="main">
+
+    <section class="jumbotron text-center">
+        <div class="container">
+            <h1 class="jumbotron-heading">Welcome To MartinDevs</h1>
+            <p class="lead text-muted">Check Out My Blog From Coding to Programing Feel Free To Post a Comment!!</p>
+            <p>
+                <a href="#" class="btn btn-primary my-2">Main call to action</a>
+                <a href="#" class="btn btn-secondary my-2">Secondary action</a>
+            </p>
+        </div>
+    </section>
+
+    <div class="album py-5 bg-light">
+        <div class="container">
+            <div class="row">
+              
+                    @foreach(var post in Model.Posts) {
+                        var image_path = $"/Content/blog/{post.Image}";
+                    <div class="col-md-4">
+                        <div class="card mb-4 box-shadow">
+                            <img class="card-img-top" src="@image_path" alt="Card image cap">
+                            <div class="card-body">
+                                <p class="card-text">@post.Description</p>
+                                <small class="text-muted">@post.Created</small>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-sm btn-outline-secondary">Go to Posts</button>
+                                    </div>
+                                   
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    }
+                </div>
+            
+        </div>
+    </div>
+
+</main>
