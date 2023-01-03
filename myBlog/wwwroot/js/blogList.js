@@ -21,15 +21,14 @@ function loadDataTable() {
                 render: function (data) {
                     return `
                          <div class="text-center">
-                           <a href="/Panel/Upsert?id=${data}" class="btn btn-success
-text-white" style="cursor:pointer">
-                          <i class="fas fa-edit"></i>
-                          </a>
-                          <a onclick=Delete("/Panel/Delete/${data}") class="btn btn-danger text-white" style="cursor:pointer">
-                              <i class="fas fa-trash-alt"></i> 
-                                </a>
+                               <a href="/Panel/Upsert?id=${data}" class="btn btn-success text-white" style="cursor:pointer">
+                                     <i class="bi bi-pencil-square"></i> Edit
+                              </a>
+                              <a onclick=Delete("/Panel/Delete/${data}") class="btn btn-danger text-white" style="cursor:pointer">
+                                  <i class="bi bi-trash-fill"></i> Delete
+                              </a>
                           </div>
-                          `;
+                         `;
                 }, "width":"40%"
             },
         ]
